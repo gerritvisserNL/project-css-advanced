@@ -1,0 +1,173 @@
+/* GLOBAL STYLE */
+:root {
+  --sedans-color: hsl(31, 77%, 52%);
+  --suvs-color: hsl(184, 100%, 22%);
+  --luxury-color: hsl(179, 100%, 13%);
+  --paragraphs-color: hsla(0, 0%, 100%, 0.75);
+  --heading-color: hsl(0, 0%, 95%);
+  --button-color: hsl(0, 0%, 95%);
+  --heading-size: 45px;
+  --paragraph-size: 15px;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.5;
+  background-color: hsl(0, 0%, 95%);
+}
+
+/* MOBILE-FIRST DESIGN */
+.container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-preview {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  width: 85vw;
+  margin: 5rem 0;
+}
+
+/* SEDAN, SUVS, LUXURY DIVs */
+div .sedans,
+.suvs,
+.luxury {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 3rem;
+}
+
+div.sedans {
+  background-color: var(--sedans-color);
+  border-radius: 1rem 1rem 0 0;
+}
+
+div.suvs {
+  background-color: var(--suvs-color);
+}
+
+div.luxury {
+  background-color: var(--luxury-color);
+  border-radius: 0 0 1rem 1rem;
+}
+
+/* BUTTON LAYOUT*/
+button {
+  background-color: var(--button-color);
+  padding: 0.75rem 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--button-color);
+  font-size: var(--paragraph-size);
+  font-family: inherit;
+  font-style: bold;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+button:active {
+  border: 1px solid var(--button-color);
+  background-color: transparent;
+  color: var(--button-color) !important;
+}
+
+div.sedans button {
+  color: var(--sedans-color);
+}
+
+div.suvs button {
+  color: var(--suvs-color);
+}
+
+div.luxury button {
+  color: var(--luxury-color);
+}
+
+/* FONT-STYLES */
+h2 {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-weight: 700;
+  font-size: var(--heading-size);
+  color: var(--heading-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: var(--paragraph-size);
+  color: var(--paragraphs-color);
+}
+
+/* FIRST MEDIA QUERY */
+@media (min-width: 650px) {
+
+  .container-preview {
+    width: 60vw;
+  }
+
+  p {
+    font-size: calc(1.2 * var(--paragraph-size));
+  }
+
+  button {
+    margin-top: 1.5rem;
+  }
+}
+
+/* SECOND MEDIA QUERY */
+@media (min-width: 1014px) {
+
+  /* display is set to grid */
+  body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+
+  .container-preview {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 1rem;
+    width: 85vw;
+    max-width: 60rem;
+  }
+
+  div.sedans,
+  div.suv,
+  div.luxury {
+    grid-row: 1 / 2;
+  }
+
+  div.sedans {
+    grid-column: 1 / 2;
+    border-radius: 1rem 0 0 1rem;
+  }
+
+  div.suv {
+    grid-column: 2 / 3;
+  }
+
+  div.luxury {
+    grid-column: 3 / -1;
+    border-radius: 0 1rem 1rem 0;
+  }
+
+  p {
+    font-size: var(--paragraph-size);
+  }
+
+  button {
+    margin-top: 4rem;
+  }
+}
